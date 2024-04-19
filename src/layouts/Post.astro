@@ -1,0 +1,14 @@
+---
+import BaseLayout from "./BaseLayout.astro";
+const { frontmatter } = Astro.props;
+---
+
+<BaseLayout title={frontmatter.title} content_type="article" description={frontmatter.description}>
+  <div class="pt-28 text-white mx-auto container lg:px-28 px-4 pb-20">
+    <div class="rounded-lg p-10 w-full">
+      <div class="prose lg:prose-xl prose-invert max-w-full" class:list={[{ "text-center": frontmatter.centered }]}>
+        <slot />
+      </div>
+    </div>
+  </div>
+</BaseLayout>

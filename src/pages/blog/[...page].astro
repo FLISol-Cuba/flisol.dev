@@ -1,0 +1,53 @@
+---
+import Layout from "../../layouts/BaseLayout.astro";
+import { getCollection } from "astro:content";
+import HeaderSectionLite from "../../components/HeaderSectionLite.astro";
+import BlogCard from "../../components/BlogCard.astro";
+import BlogPagination from "../../components/BlogPagination.astro";
+import categories from "../../libs/categories.json";
+
+export async function getStaticPaths({ paginate }) {
+  const posts = await getCollection("blog");
+  posts.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+  return paginate(posts, { pageSize: 12 });
+}
+
+const { page } = Astro.props;
+---
+
+<Layout
+  title="Flisol Blog | Our Insights"
+  description="Discover tutorials and technology insights created by our expert in our blog."
+>
+  <nav
+    class="hidden md:block relative top-16 border-b z-20 mt-1 gap-12 sm:px-6 lg:px-8 bg-white bg-opacity-90 backdrop-blur-sm"
+  >
+    <div class="flex justify-center p-4 px-6 max-w-7xl container mx-auto items-center">
+      <div class="md:flex md:gap-x-5 lg:gap-x-12 font-medium text-gray-700 hover:text-gray-900">
+        <a href="/blog/" class="text-sm leading-6"> All </a>
+        {
+          Object.values(categories).map((category) => (
+            <a href={"/blog/category/" + category.slug} class="text-sm leading-6">
+              {category.label}
+            </a>
+          ))
+        }
+      </div>
+    </div>
+  </nav>
+
+  <div class="bg-white">
+    <div class="mx-auto max-w-7xl px-6 lg:px-8">
+      <HeaderSectionLite
+        title="Our Insights"
+        subtitle="Learn from our tutorials and technology insights created by our expert."
+      />
+
+      <div class="mx-auto mt-16 grid max-w-2xl grid-cols-1 gap-x-8 gap-y-20 lg:mx-0 lg:max-w-none lg:grid-cols-3">
+        {page.data.map((post) => <BlogCard post={post} />)}
+      </div>
+
+      <BlogPagination prev={page.url.prev} next={page.url.next} />
+    </div>
+  </div>
+</Layout>

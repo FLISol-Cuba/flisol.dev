@@ -1,0 +1,21 @@
+---
+import Meta from "../components/Meta.astro";
+
+const { title, description = "", social_img = "/social.webp", content_type = "website" } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <Meta title={title} description={description} social_img={social_img} content_type={content_type} />
+  </head>
+  <body class="bg-blue-900">
+    <slot />
+  </body>
+  
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+  </style>
+</html>

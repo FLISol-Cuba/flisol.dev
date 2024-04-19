@@ -1,0 +1,29 @@
+---
+const {
+  title,
+  description = "",
+  social_img = "/social.webp",
+  content_type = "website",
+} = Astro.props;
+---
+
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width" />
+<link rel="icon" type="image/svg+xml" href="/fav.png" />
+<meta name="generator" content={Astro.generator} />
+<meta name="description" content={description} />
+<title>{title}</title>
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content={content_type} />
+<meta property="og:url" content="https://flisol.dev" />
+<meta property="og:title" content={title} />
+<meta property="og:description" content={description} />
+<meta property="og:image" content={social_img} />
+
+<!-- Twitter -->
+<meta property="twitter:card" content="summary_large_image" />
+<meta property="twitter:url" content="https://flisol.dev" />
+<meta property="twitter:title" content={title} />
+<meta property="twitter:description" content={description} />
+<meta property="twitter:image" content={social_img} />

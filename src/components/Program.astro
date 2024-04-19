@@ -1,0 +1,97 @@
+---
+const program = [
+  {
+    time: "9:00 am - 9:15 am",
+    title: "Como instalar k8s en una VPS",
+    speaker: "Dave Cuza",
+  },
+  {
+    time: "9:15 am - 9:30 am",
+    title: "Inteligencia Artificial y Software Libre: La Convergencia de la IA y el Software Libre",
+    speaker: "Edisbel Ramirez Lovatos",
+  },
+  {
+    time: "9:30 am - 9:45 am",
+    title: "Como usar Rust + Embassy para programar un nrf52832",
+    speaker: "Luís Felipe",
+  },
+  {
+    time: "9:45 am - 10:00 am",
+    title: "Creación de documentos con jsPDF",
+    speaker: "Dariel Delgado",
+  },
+  {
+    time: "10:00 am - 10:15 am",
+    title: "Situación de los motores de juego de código abierto",
+    speaker: "Roger Durañona",
+  },
+];
+---
+
+<div class="relative isolate">
+  <svg
+    class="absolute inset-0 -z-10 h-[80rem] w-full stroke-white/10 [mask-image:radial-gradient(100%_100%_at_top_right,white,transparent)]"
+    aria-hidden="true"
+  >
+    <defs>
+      <pattern
+        id="1d4240dd-898f-445f-932d-e2872fd12de3"
+        width="200"
+        height="200"
+        x="50%"
+        y="0"
+        patternUnits="userSpaceOnUse"
+      >
+        <path d="M.5 200V.5H200" fill="none"></path>
+      </pattern>
+    </defs>
+    <svg x="0" y="0" class="overflow-visible fill-gray-800/20">
+      <path d="M-200 0h201v201h-201Z M600 0h201v201h-201Z M-400 600h201v201h-201Z M200 800h201v201h-201Z" stroke-width="0"
+      ></path>
+    </svg>
+    <rect width="100%" height="100%" stroke-width="0" fill="url(#1d4240dd-898f-445f-932d-e2872fd12de3)"></rect>
+  </svg>
+
+  <div class="mx-auto pt-16 mt-16 max-w-7xl px-6 lg:px-8" id="program">
+    <div class="mx-auto max-w-5xl text-center">
+      <p class="mt-2 text-3xl font-bold tracking-tight text-white sm:text-4xl">Programa</p>
+      <p class="mt-6 text-lg leading-8 text-gray-300">No te pierdas ninguna de las charlas que tenemos para tí</p>
+    </div>
+    <div class="mx-auto mt-16 max-w-2xl sm:mt-20 lg:mt-24 lg:max-w-none">
+      <dl class="grid max-w-xl grid-cols-1 gap-x-8 gap-y-16 lg:max-w-none lg:grid-cols-2">
+        {
+          program.map((presentation) => (
+            <div class="flex flex-col">
+              <dt class="text-base items-center mb-4 flex leading-7 text-white">
+                <div class=" flex items-center h-10 w-10  justify-center rounded-lg bg-west-side-500">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="lucide lucide-circle-check-big"
+                  >
+                    <>
+                      <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+                      <path d="m9 11 3 3L22 4" />
+                    </>
+                  </svg>
+                </div>
+                <span class="ml-4">{presentation.time}</span>
+              </dt>
+              <dd class="mt-1 flex flex-auto flex-col  leading-7 ">
+                <p class="flex-auto text-white text-2xl font-bold">{presentation.title}</p>
+                <p class="flex-auto text-base pt-1 text-gray-300">{presentation.speaker}</p>
+              </dd>
+            </div>
+          ))
+        }
+      </dl>
+    </div>
+  </div>
+</div>

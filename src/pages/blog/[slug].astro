@@ -1,0 +1,92 @@
+---
+import Layout from "../../layouts/BaseLayout.astro";
+import { getCollection } from "astro:content";
+import { type BlogSchema } from "../../content/config";
+import { Image } from "astro:assets";
+import dayjs from "dayjs";
+import categoriesList from "../../libs/categories.json";
+
+export async function getStaticPaths() {
+  const postEntries = await getCollection("blog");
+  return postEntries.map((entry) => ({
+    params: { slug: entry.slug },
+    props: { entry },
+  }));
+}
+
+interface Props {
+  entry: CollectionEntry<"blog">;
+}
+
+const { entry } = Astro.props;
+const post: BlogSchema = entry.data;
+const { Content } = await entry.render();
+---
+
+<Layout title={post.title + " | Flisol"} description={post.description} social_img={post.heroImage} content_type="article">
+  <main class="md:flex md:justify-center relative z-20">
+    <div class="pt-28 relative text-white mx-auto container lg:px-28 px-4 pb-20">
+      <div
+        class="absolute inset-x-0 -z-10 flex -translate-y-1/2 justify-center overflow-hidden [mask-image:radial-gradient(50%_45%_at_50%_55%,white,transparent)]"
+      >
+        <svg class="h-[50rem] w-[80rem] flex-none stroke-gray-200" aria-hidden="true">
+          <defs>
+            <pattern
+              id="e9033f3e-f665-41a6-84ef-756f6778e6fe"
+              width="200"
+              height="200"
+              x="50%"
+              y="50%"
+              patternUnits="userSpaceOnUse"
+              patternTransform="translate(-100 0)"
+            >
+              <path d="M.5 200V.5H200" fill="none"></path>
+            </pattern>
+          </defs>
+          <svg x="50%" y="50%" class="overflow-visible fill-gray-50">
+            <path d="M-300 0h201v201h-201Z M300 200h201v201h-201Z" stroke-width="0"></path>
+          </svg>
+          <rect width="100%" height="100%" stroke-width="0" fill="url(#e9033f3e-f665-41a6-84ef-756f6778e6fe)"></rect>
+        </svg>
+      </div>
+      <div class="p-10 w-full">
+        <article class="prose lg:prose-xl max-w-4xl prose-img:mx-auto text-justify mx-auto">
+          {
+            post.heroImage && (
+              <Image
+                width={750}
+                height={422}
+                format="webp"
+                src={post.heroImage}
+                alt={post.title}
+                class="w-full mb-6 rounded-2xl border"
+              />
+            )
+          }
+
+          <div class=" flex items-center gap-x-4 mb-6 text-base">
+            {
+              post.categories?.map((category) => (
+                <a
+                  href={"/blog/category/" + categoriesList[category]?.slug}
+                  class="relative z-10 rounded-full bg-gray-50 px-3 py-1.5 font-medium text-gray-600 hover:bg-gray-100 no-underline"
+                >
+                  {categoriesList[category]?.label}
+                </a>
+              ))
+            }
+            <time datetime="2020-03-16" class="text-gray-500">
+              {dayjs(post.pubDate).format("MMMM D, YYYY")}
+            </time>
+          </div>
+
+          <h1 class="title my-2 text-2xl md:!text-5xl font-bold">{post.title}</h1>
+
+          {post.updatedDate && <p class="text-center text-sm text-blue-300">{post.updatedDate}</p>}
+          <div class="divider my-2"></div>
+          <Content />
+        </article>
+      </div>
+    </div>
+  </main>
+</Layout>
