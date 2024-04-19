@@ -5,5 +5,5 @@ import sitemap from '@astrojs/sitemap';
 // https://astro.build/config
 export default defineConfig({
   integrations: [tailwind(), sitemap()],
-  site: "https://FLisol.dev"
+  site: 'https://flisol-cuba.github.io',
 });
