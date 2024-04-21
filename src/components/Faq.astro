@@ -43,13 +43,15 @@ const faqs = [
     id="faq"
     class="mx-auto pt-16 max-w-7xl divide-y divide-gray-900/10 px-6 sm:mb-32 lg:px-8"
   >
-    <h2 class="text-3xl font-bold leading-10 tracking-tight text-white">
+    <h2
+      class="text-3xl font-bold leading-10 tracking-tight text-white yerro-animate-left"
+    >
       Preguntas frecuentes
     </h2>
     <dl class="mt-10 space-y-8 divide-y divide-white/20">
       {
         faqs.map((faq) => (
-          <div class="pt-8 lg:grid lg:grid-cols-12 lg:gap-8 max-w-2xl md:max-w-none">
+          <div class="pt-8 lg:grid lg:grid-cols-12 lg:gap-8 max-w-2xl md:max-w-none yerro-animate-bottom">
             <dt class="text-base font-semibold leading-7 text-gray-100 lg:col-span-5">
               {faq.title}
             </dt>
