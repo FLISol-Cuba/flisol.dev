@@ -7,7 +7,8 @@ const program = [
   },
   {
     time: "9:15 am - 9:30 am",
-    title: "Inteligencia Artificial y Software Libre: La Convergencia de la IA y el Software Libre",
+    title:
+      "Inteligencia Artificial y Software Libre: La Convergencia de la IA y el Software Libre",
     speaker: "Edisbel Ramirez Lovatos",
   },
   {
@@ -46,23 +47,34 @@ const program = [
       </pattern>
     </defs>
     <svg x="0" y="0" class="overflow-visible fill-gray-800/20">
-      <path d="M-200 0h201v201h-201Z M600 0h201v201h-201Z M-400 600h201v201h-201Z M200 800h201v201h-201Z" stroke-width="0"
-      ></path>
+      <path
+        d="M-200 0h201v201h-201Z M600 0h201v201h-201Z M-400 600h201v201h-201Z M200 800h201v201h-201Z"
+        stroke-width="0"></path>
     </svg>
-    <rect width="100%" height="100%" stroke-width="0" fill="url(#1d4240dd-898f-445f-932d-e2872fd12de3)"></rect>
+    <rect
+      width="100%"
+      height="100%"
+      stroke-width="0"
+      fill="url(#1d4240dd-898f-445f-932d-e2872fd12de3)"></rect>
   </svg>
 
-  <div class="mx-auto pt-16 mt-16 max-w-7xl px-6 lg:px-8" id="program">
-    <div class="mx-auto max-w-5xl text-center">
-      <p class="mt-2 text-3xl font-bold tracking-tight text-white sm:text-4xl">Programa</p>
-      <p class="mt-6 text-lg leading-8 text-gray-300">No te pierdas ninguna de las charlas que tenemos para tí</p>
+  <div class="mx-auto pt-16 max-w-7xl px-6 lg:px-8" id="program">
+    <div class="max-w-5xl">
+      <p class="mt-2 text-3xl font-bold tracking-tight text-white sm:text-4xl">
+        Programa
+      </p>
+      <p class="mt-6 text-lg leading-8 text-gray-300">
+        No te pierdas ninguna de las charlas que tenemos para tí
+      </p>
     </div>
-    <div class="mx-auto mt-16 max-w-2xl sm:mt-20 lg:mt-24 lg:max-w-none">
-      <dl class="grid max-w-xl grid-cols-1 gap-x-8 gap-y-16 lg:max-w-none lg:grid-cols-2">
+    <div class="mt-16 max-w-2xl sm:mt-20 lg:mt-24 lg:max-w-none">
+      <dl
+        class="grid max-w-xl grid-cols-1 gap-x-8 gap-y-16 lg:max-w-none lg:grid-cols-2 xl:grid-cols-3"
+      >
         {
           program.map((presentation) => (
             <div class="flex flex-col">
-              <dt class="text-base items-center mb-4 flex leading-7 text-white">
+              <dt class="text-base items-center mb-4 flex  text-white">
                 <div class=" flex items-center h-10 w-10  justify-center rounded-lg bg-west-side-500">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -84,9 +96,13 @@ const program = [
                 </div>
                 <span class="ml-4">{presentation.time}</span>
               </dt>
-              <dd class="mt-1 flex flex-auto flex-col  leading-7 ">
-                <p class="flex-auto text-white text-2xl font-bold">{presentation.title}</p>
-                <p class="flex-auto text-base pt-1 text-gray-300">{presentation.speaker}</p>
+              <dd class="mt-1 flex  flex-col  leading-7 ">
+                <p class="flex-auto text-white text-2xl font-bold">
+                  {presentation.title}
+                </p>
+                <p class="flex-auto text-base pt-1 text-gray-300">
+                  {presentation.speaker}
+                </p>
               </dd>
             </div>
           ))
