@@ -1,32 +1,79 @@
 ---
 const program = [
   {
-    time: "9:00 am - 9:15 am",
-    title: "Cómo instalar k8s con pocos recursos",
-    speaker: "Dave Cuza",
+    "time": "9:00 am - 9:15 am",
+    "title": "Cómo instalar k8s con pocos recursos",
+    "speaker": "Dave Cuza",
+    "description": "Compatriota de ultramar. Representando a la comunidad 'la taberna de la jipansia'. Nos va explicar como se mete la habana en ganabacoa."
   },
   {
-    time: "9:15 am - 9:30 am",
-    title:
-      "Inteligencia Artificial y Software Libre: La Convergencia de la IA y el Software Libre",
-    speaker: "Edisbel Ramirez Lovatos",
+    "time": "9:15 am - 9:30 am",
+    "title": "Inteligencia Artificial y Software Libre: La Convergencia de la IA y el Software Libre",
+    "speaker": "Edisbel Ramirez Lovatos",
+    "description": "Compatriota del territorio nacional. Representando a la comunidad de Linux de Cuba y a la empresa etecsa. Nos trae lo último de la moda. Las IAs."
   },
   {
-    time: "9:30 am - 9:45 am",
-    title: "Cómo usar Rust + Embassy para programar un nrf52832",
-    speaker: "Luís Felipe",
+    "time": "9:30 am - 9:45 am",
+    "title": "Cómo usar Rust + Embassy para programar un nrf52832",
+    "speaker": "Luís Felipe",
+    "description": "Compatriota de ultramar. Representando a los desarrolladores de Rust. Nos va a explicar... Cosa gorda! Desarrollo a bajo nivel."
   },
   {
-    time: "9:45 am - 10:00 am",
-    title: "Creación de documentos con jsPDF",
-    speaker: "Dariel Delgado",
+    "time": "9:45 am - 10:00 am",
+    "title": "Creación de documentos con jsPDF",
+    "speaker": "Dariel Delgado",
+    "description": "Compatriota del territorio nacional. Representando a la comunidad 'la taberna de la jipansia' y culto de Javascript. Nos mostrará cómo hacer PDFs usando el lenguaje con el que se programó el infierno."
   },
   {
-    time: "10:00 am - 10:15 am",
-    title: "Situación de los motores de juego de código abierto",
-    speaker: "Roger Durañona",
+    "time": "10:00 am - 10:15 am",
+    "title": "Estado actual de los motores de juegos libres",
+    "speaker": "Roger Durañona",
+    "description": "Compatriota del territorio nacional. Representando a la comunidad de Linux de Cuba. Nos hablará sobre la situación de los motores de juego de código abierto."
   },
-];
+  {
+    "time": "10:15 am - 10:30 am",
+    "title": "Por qué Nix es la polla en vinagre haciendo imágenes OCI",
+    "speaker": "Luís Felipe",
+    "description": "Compatriota de ultramar. Rindiendo más que un Toky en una sisterna nos trae algo sobre NixOS. Representando al culto de NixOS."
+  },
+  {
+    "time": "10:30 am - 10:45 am",
+    "title": "Oldies but goldies",
+    "speaker": "Alberto José García Fumero",
+    "description": "Compatriota del territorio nacional. Representando a la empresa Partagas y al adulto mayor. Nos va a explicar el enorme desafío que significa mantenerse dentro de la industria tecnológica cuando se tiene más de 60 años."
+  },
+  {
+    "time": "10:45 am - 11:00 am",
+    "title": "Introducción al Software libre",
+    "speaker": "Manuel Ernesto",
+    "description": "Compatriota del territorio nacional. El tipo que hizo el güebsait (website para que los que no sepan inglés). Nos trae algo básico para el público iniciado."
+  },
+  {
+    "time": "11:00 am - 11:15 am",
+    "title": "Software libre: ¿Qué es lo verdaderamente importante?",
+    "speaker": "SIMBIOSIS (403 Nombre not found)",
+    "description": "Compatriota del territorio nacional. Preparó su charla cuando estaba ingresado en un hospital."
+  },
+  {
+    "time": "11:15 am - 11:30 am",
+    "title": "Resistencia creativa: 2GB de RAM dando soporte a 150 mil usuarios mensuales",
+    "speaker": "Jeandy Bryan",
+    "description": "Compatriota del territorio nacional. Representando a la compañía privada 'yerro menú'. Nos trae cómo hacer milagros de panes y peces."
+  },
+  {
+    "time": "11:30 am - 11:45 am",
+    "title": "Cómo contribuir a un proyecto Open Source",
+    "speaker": "Manuel Ernesto",
+    "description": "El mismo de arriba. Ahora nos explica como hacer contribuciones a proyectos Open Source y no morir en el intento."
+  },
+  {
+    "time": "11:45 am - 12:00 pm",
+    "title": "Instalación de Ubuntu, una para principiantes",
+    "speaker": "Pavel Milanes",
+    "description": "Compatriota del territorio nacional. Radioaficionado y armador de robots OTTO. Nos trae algo básico para el usuario principiante."
+  }
+]
+;
 ---
 
 <div class="relative isolate">
@@ -100,8 +147,11 @@ const program = [
                 <p class="flex-auto text-white text-2xl font-bold">
                   {presentation.title}
                 </p>
-                <p class="flex-auto text-base pt-1 text-gray-300">
-                  {presentation.speaker}
+                <p class="flex-auto text-base pt-2 text-white">
+                  Por {presentation.speaker}
+                </p>
+                <p class="flex-auto text-base text-gray-300 pt-3 text-justify">
+                  {presentation.description}
                 </p>
               </dd>
             </div>
