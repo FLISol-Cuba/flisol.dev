@@ -1,21 +1,78 @@
 ---
 import Meta from "../components/Meta.astro";
+import "../styles/yerro-minimal-animate.css";
 
-const { title, description = "", social_img = "/social.webp", content_type = "website" } = Astro.props;
+const {
+  title,
+  description = "",
+  social_img = "/social.webp",
+  content_type = "website",
+} = Astro.props;
 ---
 
 <!doctype html>
 <html lang="en">
   <head>
-    <Meta title={title} description={description} social_img={social_img} content_type={content_type} />
+    <Meta
+      title={title}
+      description={description}
+      social_img={social_img}
+      content_type={content_type}
+    />
   </head>
   <body class="bg-blue-900">
     <slot />
+    <style>
+      html {
+        scroll-behavior: smooth;
+      }
+    </style>
+    <script>
+      const classDic = [
+        {
+          class: "yerro-animate-left",
+          action: "animate-left",
+        },
+        {
+          class: "yerro-animate-top",
+          action: "animate-top",
+        },
+        {
+          class: "yerro-animate-right",
+          action: "animate-right",
+        },
+        {
+          class: "yerro-animate-bottom",
+          action: "animate-bottom",
+        },
+        {
+          class: "yerro-animate-fade-in",
+          action: "animate-fade-in",
+        },
+      ];
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              classDic.forEach((dic) => {
+                if (entry.target.classList.contains(dic.class)) {
+                  entry.target.classList.add(dic.action);
+                }
+              });
+            }
+          });
+        },
+        {
+          threshold: 0.5,
+        }
+      );
+
+      const targets = document.querySelectorAll(
+        ".yerro-animate-left, .yerro-animate-top, .yerro-animate-right, .yerro-animate-bottom,  .yerro-animate-fade-in"
+      );
+      targets.forEach((target) => {
+        observer.observe(target);
+      });
+    </script>
   </body>
-  
-  <style>
-    html {
-      scroll-behavior: smooth;
-    }
-  </style>
 </html>

@@ -1,0 +1,85 @@
+.yerro-animate-left,
+.yerro-animate-top,
+.yerro-animate-right,
+.yerro-animate-bottom,
+.yerro-animate-fade-in {
+  @apply opacity-0  transition-transform ease-in-out;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+}
+
+.animate-left {
+  animation-name: animate-left;
+}
+.animate-top {
+  animation-name: animate-top;
+}
+.animate-right {
+  animation-name: animate-right;
+}
+.animate-bottom {
+  animation-name: animate-bottom;
+}
+
+.animate-fade-in {
+  animation-name: animate-fade-in;
+}
+
+@keyframes animate-left {
+  0% {
+    pacity: 0;
+    transform: translate(-2rem);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translate(0);
+  }
+}
+@keyframes animate-top {
+  0% {
+    pacity: 0;
+    transform: translate(0, -2rem);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translate(0);
+  }
+}
+@keyframes animate-right {
+  0% {
+    pacity: 0;
+    transform: translate(2rem);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translate(0);
+  }
+}
+@keyframes animate-bottom {
+  0% {
+    pacity: 0;
+    transform: translate(0, 2rem);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translate(0);
+  }
+}
+
+@keyframes animate-fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.easeLoad {
+  opacity: 0;
+  transition: all 0.5s ease;
+}
