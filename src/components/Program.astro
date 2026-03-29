@@ -1,66 +1,6 @@
 ---
-const program = [
-  {
-    "time": "9:00 am - 9:15 am",
-    "title": "Cómo montarse un immich.app para darle una patada a Google Photos",
-    "speaker": "Dave Cuza",
-    "description": "Ciudadano del mundo. Representando a la comunidad 'la taberna de la jipansia'. Nos va a explicar cómo montarse un immich.app para reemplazar Google Photos."
-  },
-  {
-    "time": "9:15 am - 9:30 am",
-    "title": "Tu Escudo Digital: Ciberseguridad Práctica con Software Libre",
-    "speaker": "Edisbel Ramirez Lovatos",
-    "description": "Compatriota del territorio nacional. Representando a la Comunidad Linux de Cuba y a ETECSA. Nos va a decir cómo apretarte los pantalones pa que no te metan cosas raras."
-  },
-  {
-    "time": "9:30 am - 9:45 am",
-    "title": "Montando tu propia infraestructura de contraseñas con Bitwarden",
-    "speaker": "Dave Cuza",
-    "description": "Ciudadano del mundo. Representando a la comunidad 'la taberna de la jipansia'. Nos va a explicar cómo tener tu propio gestor de contraseñas con juegos de azar y mujerzuelas usando Bitwarden."
-  },
-  {
-    "time": "9:45 am - 10:00 am",
-    "title": "Uso de jsPDF, biblioteca open-source para la generación de PDF con js",
-    "speaker": "Dariel Delgado",
-    "description": "Compatriota del territorio nacional. Representando a todas las Vietnamitas residentes en Cuba. Nos va a hablar de cómo conjurar PDFs en la lengua negra de Mordor (javescrí)."
-  },
-  {
-    "time": "10:00 am - 10:15 am",
-    "title": "Haciendo Software Libre con Vibe Coding 🪄 Lo bueno, lo malo y lo desastroso",
-    "speaker": "Manuel Ernesto",
-    "description": "Compatriota del territorio nacional. Representando a Decubba. Alguien tenía que hablar de vibe coding."
-  },
-  {
-    "time": "10:15 am - 10:30 am",
-    "title": "manolo_bot: cómo hacer tu propio bot de Telegram propulsado por IA, usando software libre",
-    "speaker": "Carlos Caballero",
-    "description": "Compatriota de ultramar. Representando a daxlab. Nos va a decir cómo hacer un bot con nombre gallego."
-  },
-  {
-    "time": "10:30 am - 10:45 am",
-    "title": "Licencias de Software Libre: Entendiendo la Libertad en el Código",
-    "speaker": "Arael Espinosa (Paco)",
-    "description": "Compatriota de ultramar. Representando a los cubanos que viven en Uruguay. Nos va a hablar estilo leguleyo."
-  },
-  {
-    "time": "10:45 am - 11:00 am",
-    "title": "Showly Desktop, la alternativa a proyectores en entornos de pocos recursos",
-    "speaker": "Rolando Rio",
-    "description": "Compatriota de ultramar. Representando a los astronautas de la NASA. Nos enseña su invento."
-  },
-  {
-    "time": "11:00 am - 11:15 am",
-    "title": "IA de Código Abierto y Modelos Compartibles",
-    "speaker": "Rosniel Allesta Fundora",
-    "description": "Compatriota del territorio nacional. Representando a la población que se queda sin pelo en 2 semanas. Nos muestra cómo la IA generativa y el software libre están remodelando el desarrollo de modelos."
-  },
-  {
-    "time": "11:15 am - 11:30 am",
-    "title": "Cómo instalar Linux puede desarrollar tu carrera como developer",
-    "speaker": "Leonardo Arencibia",
-    "description": "Compatriota de ultramar. Representando la provincia más occidental de Cuba. Nos dice cómo hacer tu entorno de desarrollo grande otra vez."
-  }
-];
+import { eventConfig } from "../data/event";
+import { program } from "../data/program";
 ---
 
 <div class="relative isolate">
@@ -94,9 +34,13 @@ const program = [
         No te pierdas ninguna de las charlas que tenemos para tí
       </p> -->
       <p class="mt-6 text-lg leading-8 text-gray-300">
-        Aqui iremos actualizando el programa del evento. Mantente al tanto en nuestro canal de telegram.
+        Aqui iremos actualizando el programa del evento. Mantente al tanto en <a
+          class="underline decoration-west-side-500 underline-offset-4 transition hover:text-white"
+          href={eventConfig.links.telegram.href}
+          target="_blank"
+          rel="noreferrer"
+        >{eventConfig.links.telegram.inlineLabel}</a>.
       </p>
-      <p class="text-lg leading-8 text-gray-300">...</p>
     </div>
     <div class="mt-16 max-w-2xl sm:mt-20 lg:mt-24 md:max-w-none">
       <dl class="grid max-w-xl grid-cols-1 gap-x-8 gap-y-16 md:max-w-none lg:grid-cols-2 xl:grid-cols-3">
