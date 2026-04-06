@@ -7,8 +7,8 @@ export const program = [
   },
   {
     time: "9:10 am - 9:20 am",
-    title: "aws-doctor: De la terminal a FinOp",
-    speaker: "Juan Gabriel Companioni",
+    title: "aws-doctor: De la terminal a FinOps",
+    speaker: "José Gabriel Companioni",
     description: "Representando a La Taberna de la Jipansia. Auditoría de desperdicios en AWS y reportes de costos nativos."
   },
   {
