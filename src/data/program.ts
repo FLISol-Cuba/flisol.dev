@@ -16,5 +16,11 @@ export const program = [
     title: "Zextras Carbonio CE como alternativa a Zimbra en Cuba.",
     speaker: "Alejandro Hernández Pastora",
     description: "Representando a la comunidad NETWORLD. Nos va a decir como darle una patada a Zimbra y usar Zextras carbonio en su lugar."
+  },
+  {
+    time: "9:30 am - 9:20 am",
+    "title": "db-migrator: Migrá y sanitizá PostgreSQL desde la terminal",
+    speaker: "Arael Espinosa",
+    "description": "Herramienta CLI open source para copiar bases de datos PostgreSQL entre entornos y reemplazar datos sensibles de forma declarativa."
   }
 ] as const;
