@@ -21,6 +21,12 @@ export const program = [
     time: "9:30 am - 9:20 am",
     "title": "db-migrator: Migrá y sanitizá PostgreSQL desde la terminal",
     speaker: "Arael Espinosa",
-    "description": "Herramienta CLI open source para copiar bases de datos PostgreSQL entre entornos y reemplazar datos sensibles de forma declarativa."
+    "description": "Representando a los cubanos en Uruguay. No presenta su herramienta CLI open source para copiar bases de datos PostgreSQL entre entornos y reemplazar datos sensibles de forma declarativa."
+  },
+  {
+    time: "9:40 am - 9:50 am",
+    title: "Herramienta open source de speech-to-text a nivel de sistema.",
+    speaker: "Erik Novikov",
+    description: "Reprensentando a la comunidad linux cuba. Nos va a enseñar cómo tener dictado global en cualquier distro de Linux con la precisión de Whisper, en tiempo real, y gratis, pero con cero consumo de recursos locales."
   }
 ] as const;
