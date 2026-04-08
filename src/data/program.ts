@@ -28,5 +28,11 @@ export const program = [
     title: "Herramienta open source de speech-to-text a nivel de sistema.",
     speaker: "Erik Novikov",
     description: "Reprensentando a la comunidad linux cuba. Nos va a enseñar cómo tener dictado global en cualquier distro de Linux con la precisión de Whisper, en tiempo real, y gratis, pero con cero consumo de recursos locales."
+  },
+  {
+    time: "9:50 am - 10:00 am",
+    title: "Open Source sin drama: community standards para colaborar mejor",
+    speaker: "Reinier Hernández",
+    description: "Saliendo de la consola para contarnos cómo usar los community standards de GitHub para que colaborar en tu proyecto sea sin drama: guías claras, templates útiles y reglas que todos entienden."
   }
 ] as const;
