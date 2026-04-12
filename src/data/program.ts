@@ -1,27 +1,21 @@
 export const program = [
   {
     time: "9:00 am - 9:10 am",
+    "title": "db-migrator: Migrá y sanitizá PostgreSQL desde la terminal",
+    speaker: "Arael Espinosa",
+    "description": "Representando a los cubanos en Uruguay. No presenta su herramienta CLI open source para copiar bases de datos PostgreSQL entre entornos y reemplazar datos sensibles de forma declarativa."
+  },
+  {
+    time: "9:20 am - 9:30 am",
     title: "MailAD: Server de correo para Cuba, hecho por cubanos.",
     speaker: "Pavel Milanes (CO7WT) ",
     description: "Representando a los radioaficionados. Nos va a decir como hacerte tu propio servidor email mambí."
   },
   {
-    time: "9:10 am - 9:20 am",
+    time: "9:30 am - 9:40 am",
     title: "aws-doctor: De la terminal a FinOps",
     speaker: "José Gabriel Companioni",
     description: "Representando a La Taberna de la Jipansia. Auditoría de desperdicios en AWS y reportes de costos nativos."
-  },
-  {
-    time: "9:20 am - 9:30 am",
-    title: "Zextras Carbonio CE como alternativa a Zimbra en Cuba.",
-    speaker: "Alejandro Hernández Pastora",
-    description: "Representando a la comunidad NETWORLD. Nos va a decir como darle una patada a Zimbra y usar Zextras carbonio en su lugar."
-  },
-  {
-    time: "9:30 am - 9:20 am",
-    "title": "db-migrator: Migrá y sanitizá PostgreSQL desde la terminal",
-    speaker: "Arael Espinosa",
-    "description": "Representando a los cubanos en Uruguay. No presenta su herramienta CLI open source para copiar bases de datos PostgreSQL entre entornos y reemplazar datos sensibles de forma declarativa."
   },
   {
     time: "9:40 am - 9:50 am",
@@ -35,4 +29,5 @@ export const program = [
     speaker: "Reinier Hernández",
     description: "Saliendo de la consola para contarnos cómo usar los community standards de GitHub para que colaborar en tu proyecto sea sin drama: guías claras, templates útiles y reglas que todos entienden."
   }
+
 ] as const;
