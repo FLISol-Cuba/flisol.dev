@@ -28,6 +28,12 @@ export const program = [
     title: "Open Source sin drama: community standards para colaborar mejor",
     speaker: "Reinier Hernández",
     description: "Saliendo de la consola para contarnos cómo usar los community standards de GitHub para que colaborar en tu proyecto sea sin drama: guías claras, templates útiles y reglas que todos entienden."
-  }
+  },
+    {
+    time: "10:00 am - 10:10 am",
+    title: "Detección práctica de deepfakes generados por IA con herramientas de software libre.",
+    speaker: "Edisbel Ramirez Lovatos",
+    description: "Reprensentando a la Comunidad Linux de Cuba y a ETECSA"
+  },
 
 ] as const;
