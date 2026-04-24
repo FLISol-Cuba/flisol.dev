@@ -27,7 +27,7 @@
 
 @keyframes animate-left {
   0% {
-    pacity: 0;
+    opacity: 0;
     transform: translate(-2rem);
   }
 
@@ -38,7 +38,7 @@
 }
 @keyframes animate-top {
   0% {
-    pacity: 0;
+    opacity: 0;
     transform: translate(0, -2rem);
   }
 
@@ -49,7 +49,7 @@
 }
 @keyframes animate-right {
   0% {
-    pacity: 0;
+    opacity: 0;
     transform: translate(2rem);
   }
 
@@ -60,7 +60,7 @@
 }
 @keyframes animate-bottom {
   0% {
-    pacity: 0;
+    opacity: 0;
     transform: translate(0, 2rem);
   }
 

@@ -1,0 +1,61 @@
+---
+interface Props {
+  videoId: string;
+  title?: string;
+  autoplay?: boolean;
+}
+
+const {
+  videoId,
+  title = "YouTube video player",
+  autoplay = false,
+} = Astro.props;
+
+const embedUrl = `https://www.youtube.com/embed/${videoId}${autoplay ? "?autoplay=1" : ""}`;
+const thumbnailUrl = `https://img.youtube.com/vi/${videoId}/maxresdefault.jpg`;
+---
+
+<div class="youtube-lazy-load relative w-full aspect-video rounded-xl overflow-hidden bg-gray-900">
+  <button
+    type="button"
+    class="play-button absolute inset-0 w-full h-full flex items-center justify-center bg-cover bg-center cursor-pointer focus:outline-none focus:ring-2 focus:ring-west-side-500 focus:ring-offset-2 focus:ring-offset-gray-900"
+    data-embed-url={embedUrl}
+    aria-label={`Reproducir video: ${title}`}
+    style={`background-image: url(${thumbnailUrl})`}
+  >
+    <span class="sr-only">{title}</span>
+    <div class="play-icon w-20 h-20 rounded-full bg-white/90 flex items-center justify-center shadow-lg hover:bg-white transition-colors">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 24 24"
+        fill="currentColor"
+        class="w-10 h-10 text-west-side-500 ml-1"
+      >
+        <path fill-rule="evenodd" d="M4.5 5.653c0-1.426 1.529-2.33 2.779-1.643l11.54 6.348c1.295.712 1.295 2.573 0 3.285L7.28 19.991c-1.25.687-2.779-.217-2.779-1.643V5.653z" clip-rule="evenodd" />
+      </svg>
+    </div>
+  </button>
+  <iframe
+    class="hidden absolute inset-0 w-full h-full"
+    title={title}
+    frameborder="0"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+    referrerpolicy="strict-origin-when-cross-origin"
+    allowfullscreen
+  ></iframe>
+</div>
+
+<script>
+  document.querySelectorAll('.youtube-lazy-load').forEach((container) => {
+    const button = container.querySelector('.play-button') as HTMLButtonElement;
+    const iframe = container.querySelector('iframe') as HTMLIFrameElement;
+
+    button?.addEventListener('click', () => {
+      if (iframe && button.dataset.embedUrl) {
+        iframe.src = button.dataset.embedUrl;
+        iframe.classList.remove('hidden');
+        button.classList.add('hidden');
+      }
+    });
+  });
+</script>
