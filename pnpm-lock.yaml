@@ -8,18 +8,15 @@ importers:
 
   .:
     dependencies:
-      '@astrojs/rss':
-        specifier: ^3.0.0
-        version: 3.0.0
       '@astrojs/sitemap':
         specifier: ^3.1.3
         version: 3.1.3
       '@astrojs/tailwind':
         specifier: ^5.0.3
-        version: 5.0.3(astro@4.0.2)(tailwindcss@3.3.1)
+        version: 5.0.3(astro@4.0.2)(tailwindcss@3.3.1(postcss@8.4.32))
       '@tailwindcss/typography':
         specifier: ^0.5.10
-        version: 0.5.10(tailwindcss@3.3.1)
+        version: 0.5.10(tailwindcss@3.3.1(postcss@8.4.32))
       astro:
         specifier: ^4.0.2
         version: 4.0.2
@@ -53,9 +50,6 @@ packages:
   '@astrojs/prism@3.0.0':
     resolution: {integrity: sha512-g61lZupWq1bYbcBnYZqdjndShr/J3l/oFobBKPA3+qMat146zce3nz2kdO4giGbhYDt4gYdhmoBz0vZJ4sIurQ==}
     engines: {node: '>=18.14.1'}
-
-  '@astrojs/rss@3.0.0':
-    resolution: {integrity: sha512-PMX8iqByk9gtOrusikten/oF5uHjOCZigL6RuXFBUu+xtdKQxXzfIohJ99V2haA4FJjVDyibDTGzXR81POBMxQ==}
 
   '@astrojs/sitemap@3.1.3':
     resolution: {integrity: sha512-9WB5c071L+FNbs/0727lcqbHvS17TxnDRdfXXiAMustBRFlqkCrziHy+MsfeghxtyXp0pFTFO3NjGRfOppbFzQ==}
@@ -392,21 +386,25 @@ packages:
     resolution: {integrity: sha512-9lhc4UZstsegbNLhH0Zu6TqvDfmhGzuCWtcTFXY10VjLLUe4Mr0Ye2L3rrtHaDd/J5+tFMEuo5LTCSCMXWfUKw==}
     cpu: [arm64]
     os: [linux]
+    libc: [glibc]
 
   '@rollup/rollup-linux-arm64-musl@4.6.1':
     resolution: {integrity: sha512-FfoOK1yP5ksX3wwZ4Zk1NgyGHZyuRhf99j64I5oEmirV8EFT7+OhUZEnP+x17lcP/QHJNWGsoJwrz4PJ9fBEXw==}
     cpu: [arm64]
     os: [linux]
+    libc: [musl]
 
   '@rollup/rollup-linux-x64-gnu@4.6.1':
     resolution: {integrity: sha512-DNGZvZDO5YF7jN5fX8ZqmGLjZEXIJRdJEdTFMhiyXqyXubBa0WVLDWSNlQ5JR2PNgDbEV1VQowhVRUh+74D+RA==}
     cpu: [x64]
     os: [linux]
+    libc: [glibc]
 
   '@rollup/rollup-linux-x64-musl@4.6.1':
     resolution: {integrity: sha512-RkJVNVRM+piYy87HrKmhbexCHg3A6Z6MU0W9GHnJwBQNBeyhCJG9KDce4SAMdicQnpURggSvtbGo9xAWOfSvIQ==}
     cpu: [x64]
     os: [linux]
+    libc: [musl]
 
   '@rollup/rollup-win32-arm64-msvc@4.6.1':
     resolution: {integrity: sha512-v2FVT6xfnnmTe3W9bJXl6r5KwJglMK/iRlkKiIFfO6ysKs0rDgz7Cwwf3tjldxQUrHL9INT/1r4VA0n9L/F1vQ==}
@@ -835,10 +833,6 @@ packages:
   fast-glob@3.3.2:
     resolution: {integrity: sha512-oX2ruAFQwf/Orj8m737Y5adxDQO0LAB7/S5MnxCdTNDd4p6BsyIVsv9JQsATbTSq8KHRpLwIHbVlUNatxd+1Ow==}
     engines: {node: '>=8.6.0'}
-
-  fast-xml-parser@4.2.7:
-    resolution: {integrity: sha512-J8r6BriSLO1uj2miOk1NW0YVm8AGOOu3Si2HQp/cSmo6EA4m3fcwu2WKjJ4RK9wMLBtg69y1kS8baDiQBR41Ig==}
-    hasBin: true
 
   fastq@1.15.0:
     resolution: {integrity: sha512-wBrocU2LCXXa+lWBt8RoIRD89Fi8OdABODa/kEnyeyjS5aZO5/GNvI5sEINADqP/h8M29UHTHUb53sUu5Ihqdw==}
@@ -1768,9 +1762,6 @@ packages:
     resolution: {integrity: sha512-4gB8na07fecVVkOI6Rs4e7T6NOTki5EmL7TUduTs6bu3EdnSycntVJ4re8kgZA+wx9IueI2Y11bfbgwtzuE0KQ==}
     engines: {node: '>=0.10.0'}
 
-  strnum@1.0.5:
-    resolution: {integrity: sha512-J8bbNyKKXl5qYcR36TIO8W3mVGVHrmmxsd5PAItGkmyzwJvybiw2IVq5nqd0i4LSNSkB/sx9VHllbfFdr9k1JA==}
-
   sucrase@3.32.0:
     resolution: {integrity: sha512-ydQOU34rpSyj2TGyz4D2p8rbktIOZ8QY9s+DGLvFU1i5pWJE8vkpruCjGCMHsdXwnD7JDcS+noSwM/a7zyNFDQ==}
     engines: {node: '>=8'}
@@ -2045,17 +2036,12 @@ snapshots:
     dependencies:
       prismjs: 1.29.0
 
-  '@astrojs/rss@3.0.0':
-    dependencies:
-      fast-xml-parser: 4.2.7
-      kleur: 4.1.5
-
   '@astrojs/sitemap@3.1.3':
     dependencies:
       sitemap: 7.1.1
       zod: 3.22.4
 
-  '@astrojs/tailwind@5.0.3(astro@4.0.2)(tailwindcss@3.3.1)':
+  '@astrojs/tailwind@5.0.3(astro@4.0.2)(tailwindcss@3.3.1(postcss@8.4.32))':
     dependencies:
       astro: 4.0.2
       autoprefixer: 10.4.16(postcss@8.4.31)
@@ -2378,7 +2364,7 @@ snapshots:
   '@rollup/rollup-win32-x64-msvc@4.6.1':
     optional: true
 
-  '@tailwindcss/typography@0.5.10(tailwindcss@3.3.1)':
+  '@tailwindcss/typography@0.5.10(tailwindcss@3.3.1(postcss@8.4.32))':
     dependencies:
       lodash.castarray: 4.4.0
       lodash.isplainobject: 4.0.6
@@ -2864,10 +2850,6 @@ snapshots:
       glob-parent: 5.1.2
       merge2: 1.4.1
       micromatch: 4.0.5
-
-  fast-xml-parser@4.2.7:
-    dependencies:
-      strnum: 1.0.5
 
   fastq@1.15.0:
     dependencies:
@@ -3667,14 +3649,16 @@ snapshots:
   postcss-load-config@3.1.4(postcss@8.4.32):
     dependencies:
       lilconfig: 2.1.0
-      postcss: 8.4.32
       yaml: 1.10.2
+    optionalDependencies:
+      postcss: 8.4.32
 
   postcss-load-config@4.0.2(postcss@8.4.31):
     dependencies:
       lilconfig: 3.0.0
-      postcss: 8.4.31
       yaml: 2.3.4
+    optionalDependencies:
+      postcss: 8.4.31
 
   postcss-nested@6.0.0(postcss@8.4.32):
     dependencies:
@@ -4046,8 +4030,6 @@ snapshots:
   strip-json-comments@2.0.1:
     optional: true
 
-  strnum@1.0.5: {}
-
   sucrase@3.32.0:
     dependencies:
       '@jridgewell/gen-mapping': 0.3.3
@@ -4271,7 +4253,7 @@ snapshots:
       fsevents: 2.3.3
 
   vitefu@0.2.5(vite@5.0.5):
-    dependencies:
+    optionalDependencies:
       vite: 5.0.5
 
   web-namespaces@2.0.1: {}
