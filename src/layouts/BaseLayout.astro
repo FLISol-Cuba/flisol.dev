@@ -1,6 +1,7 @@
 ---
 import Meta from "../components/Meta.astro";
 import "../styles/yerro-minimal-animate.css";
+import { eventConfig } from "../data/event";
 
 const {
   title,
@@ -8,6 +9,27 @@ const {
   social_img = "/social.webp",
   content_type = "website",
 } = Astro.props;
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "Event",
+  "name": eventConfig.meta.title,
+  "description": description,
+  "startDate": `${eventConfig.year}-04-25T09:00-05:00`,
+  "endDate": `${eventConfig.year}-04-25T12:00-05:00`,
+  "eventStatus": "https://schema.org/EventScheduled",
+  "eventAttendanceMode": "https://schema.org/OnlineEventAttendanceMode",
+  "location": {
+    "@type": "VirtualLocation",
+    "url": "https://flisol.dev"
+  },
+  "image": social_img,
+  "organizer": {
+    "@type": "Organization",
+    "name": "FLISoL Cuba",
+    "url": "https://flisol.dev"
+  }
+};
 ---
 
 <!doctype html>
@@ -19,6 +41,7 @@ const {
       social_img={social_img}
       content_type={content_type}
     />
+    <script type="application/ld+json" set:html={JSON.stringify(schema)} />
   </head>
   <body class="bg-blue-900">
     <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:bg-west-side-500 focus:text-white focus:px-4 focus:py-2 focus:rounded-md">Saltar al contenido principal</a>
