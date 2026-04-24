@@ -34,17 +34,24 @@ const youtubeUrl = eventConfig.links.stream.href.replace("watch?v=", "embed/");
         aria-expanded="false"
         id="mobile-menu-btn"
       >
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-        </svg>
+        <div id="nav-icon">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
       </button>
 
       <div class="hidden lg:flex lg:gap-x-12 text-white items-center">
-        {navLinks.map((link) => (
-          <a href={link.href} class="text-sm font-semibold leading-6 hover:text-west-side-400 transition-colors">
-            {link.label}
-          </a>
-        ))}
+        {
+          navLinks.map((link) => (
+            <a
+              href={link.href}
+              class="text-sm font-semibold leading-6 hover:text-west-side-400 transition-colors"
+            >
+              {link.label}
+            </a>
+          ))
+        }
       </div>
 
       <div class="hidden lg:flex gap-5 items-center">
@@ -87,21 +94,16 @@ const youtubeUrl = eventConfig.links.stream.href.replace("watch?v=", "embed/");
     aria-label="Menú de navegación"
   >
     <div class="flex flex-col items-center justify-center h-full gap-8">
-      <button
-        type="button"
-        class="absolute top-6 right-6 text-white p-2"
-        aria-label="Cerrar menú"
-        id="mobile-menu-close"
-      >
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-        </svg>
-      </button>
-      {navLinks.map((link) => (
-        <a href={link.href} class="text-2xl font-semibold text-white hover:text-west-side-400 transition-colors">
-          {link.label}
-        </a>
-      ))}
+      {
+        navLinks.map((link) => (
+          <a
+            href={link.href}
+            class="text-2xl font-semibold text-white hover:text-west-side-400 transition-colors"
+          >
+            {link.label}
+          </a>
+        ))
+      }
       <a
         href={youtubeUrl}
         target="_blank"
@@ -114,25 +116,63 @@ const youtubeUrl = eventConfig.links.stream.href.replace("watch?v=", "embed/");
   </div>
 </header>
 
+<style>
+  #nav-icon {
+    width: 30px;
+    height: 24px;
+    position: relative;
+    cursor: pointer;
+    display: block;
+  }
+
+  #nav-icon span {
+    display: block;
+    position: absolute;
+    height: 3px;
+    width: 100%;
+    background: #d3531a;
+    border-radius: 3px;
+    opacity: 1;
+    left: 0;
+    transition: 0.25s ease-in-out;
+    transform-origin: center;
+  }
+
+  #nav-icon span:nth-child(1) {
+    top: 0px;
+  }
+  #nav-icon span:nth-child(2) {
+    top: 10px;
+  }
+  #nav-icon span:nth-child(3) {
+    top: 20px;
+  }
+
+  #nav-icon.open span:nth-child(1) {
+    transform: rotate(45deg);
+    top: 10px;
+  }
+  #nav-icon.open span:nth-child(2) {
+    opacity: 0;
+    transform: scaleX(0);
+  }
+  #nav-icon.open span:nth-child(3) {
+    transform: rotate(-45deg);
+    top: 10px;
+  }
+</style>
+
 <script>
-  const menuBtn = document.getElementById('mobile-menu-btn');
-  const menuClose = document.getElementById('mobile-menu-close');
-  const mobileMenu = document.getElementById('mobile-menu');
+  document.addEventListener("DOMContentLoaded", () => {
+    const btn = document.getElementById("mobile-menu-btn");
+    const menu = document.getElementById("mobile-menu");
+    const icon = document.getElementById("nav-icon");
 
-  menuBtn?.addEventListener('click', () => {
-    mobileMenu?.classList.remove('hidden');
-    menuBtn.setAttribute('aria-expanded', 'true');
-  });
+    const toggle = () => {
+      menu?.classList.toggle("hidden");
+      icon?.classList.toggle("open");
+    };
 
-  menuClose?.addEventListener('click', () => {
-    mobileMenu?.classList.add('hidden');
-    menuBtn.setAttribute('aria-expanded', 'false');
-  });
-
-  mobileMenu?.querySelectorAll('a').forEach((link) => {
-    link.addEventListener('click', () => {
-      mobileMenu.classList.add('hidden');
-      menuBtn?.setAttribute('aria-expanded', 'false');
-    });
+    btn?.addEventListener("click", toggle);
   });
 </script>
