@@ -1,14 +1,16 @@
 ---
+import YouTubeEmbed from "./YouTubeEmbed.astro";
+
 const editions = [
   {
     title: "Flisol Cuba 2025",
     date: "26 de abril del 2025",
-    youtube: "https://www.youtube.com/embed/fGJrYY9JM9Y?si=83hHtKNFC-RMO4Px",
+    videoId: "fGJrYY9JM9Y",
   },
   {
     title: "Flisol Cuba 2024",
     date: "27 de abril del 2024",
-    youtube: "https://www.youtube.com/embed/rrQophvXDEo?si=jTJwxBtkRP3uFKHt",
+    videoId: "rrQophvXDEo",
   }
 ];
 ---
@@ -29,14 +31,7 @@ const editions = [
               <dd class="mt-1 flex  flex-col  leading-7 ">
                 <p class="flex-auto text-white text-2xl font-bold ">{edition.title}</p>
                 <span class="mb-3 text-white text-lg opacity-80">{edition.date}</span>
-                <iframe
-                  class="mt-1 flex border  flex-col rounded-lg  leading-7 aspect-video"
-                  src={edition.youtube}
-                  title={`Video de ${edition.title}`}
-                  frameborder="0"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowfullscreen
-                />
+                <YouTubeEmbed videoId={edition.videoId} title={`Video de ${edition.title}`} />
               </dd>
             </div>
           ))
